@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { watch } from 'vue'
-
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 import TableHeader from '@/components/TableHeader.vue'
 import BaseLoading from '@/components/BaseLoading.vue'
 
-import { useCounterAnimation } from '@/composables/useCounterAnimation'
-
-const props = defineProps({
+defineProps({
   categories: {
     type: Array as () => Array<Category>,
     required: true
@@ -35,25 +31,17 @@ interface Category {
   color: string
   value: number
 }
-
-const { count, animate } = useCounterAnimation()
-
-const updateCounter = (newValue: number) => {
-  animate(newValue)
-}
-
-watch(() => props.summary.income, updateCounter)
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full mb-16">
     <TableHeader title="Análise Geral" icon="target" />
 
     <div v-if="!loading">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-t border-table">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-t border-table">
         <div>
           <p class="font-medium text-sm color-black mb-2">Ganhos</p>
-          <p class="font-medium text-xl color-black">R${{ count }}</p>
+          <p class="font-medium text-xl color-black">R${{ summary.income }}</p>
         </div>
 
         <div>
@@ -63,7 +51,7 @@ watch(() => props.summary.income, updateCounter)
       </div>
 
       <ul class="mt-2">
-        <li v-for="category in categories" :key="category.id" class="py-3">
+        <li v-for="category in categories" :key="category.id" class="py-1">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <FontAwesomeIcon :icon="faCartShopping" class="text-md bg-yellow p-2" />
@@ -72,9 +60,9 @@ watch(() => props.summary.income, updateCounter)
             <p class="font-medium text-sm color-black">{{ category.value }}%</p>
           </div>
 
-          <div class="w-full h-2 rounded mt-2 bg-bars relative">
+          <div class="w-full h-2 rounded mt-1 bg-bars relative">
             <div
-              class="w-full h-2 rounded-full mt-2"
+              class="w-full h-2 rounded-full mt-1"
               :style="{ backgroundColor: category.color, width: category.value + '%' }"
             ></div>
           </div>

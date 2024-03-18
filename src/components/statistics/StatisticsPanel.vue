@@ -4,23 +4,19 @@ import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
 import StatisticsCard from '@/components/statistics/StatisticsCard.vue'
 
-const cardInfo = [
-  {
-    title: 'Conta PJ',
-    value: 'R$ 1.000,00',
-    id: 'sales'
+interface Card {
+  title: string
+  value: Number
+  id: String
+}
+
+defineProps({
+  cards: {
+    type: Array as () => Card[],
+    required: true
   },
-  {
-    title: 'Recebimentos',
-    value: 'R$ 1.000,00',
-    id: 'clients'
-  },
-  {
-    title: 'Lucro',
-    value: 'R$ 1.000,00',
-    id: 'products'
-  }
-]
+  loading: Boolean
+})
 </script>
 
 <template>
@@ -31,13 +27,13 @@ const cardInfo = [
       <p class="font-medium text-sm text-hint">últimos 7 dias</p>
     </div>
 
-    <div class="flex justify-between items-center gap-12 mt-8 md:flex-col md:gap-4">
+    <div class="flex justify-between items-center gap-10 mt-6 md:flex-col md:gap-4" v-if="!loading">
       <StatisticsCard
-        v-for="card in cardInfo"
-        :key="card.id"
+        v-for="card in cards"
+        :key="card.id + '-card'"
+        :id="card.id as string"
         :title="card.title"
-        :value="card.value"
-        :id="card.id"
+        :value="card.value as number"
         class="w-1/3 md:w-full"
       />
     </div>

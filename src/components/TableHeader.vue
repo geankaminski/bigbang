@@ -15,13 +15,17 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex items-center justify-between mb-6">
-    <div class="flex items-center gap-4 text-primary">
-      <FontAwesomeIcon v-if="icon === 'dollar'" :icon="faMoneyCheckDollar" class="text-xl" />
-      <FontAwesomeIcon v-if="icon === 'target'" :icon="faBullseye" class="text-xl" />
-      <p class="font-medium text-xl">{{ title }}</p>
-      <p class="font-medium text-sm text-hint">últimos 7 dias</p>
+  <div class="flex items-center justify-between mb-6 md:mb-4">
+    <div class="flex items-center gap-4 text-primary md:gap-2">
+      <FontAwesomeIcon
+        v-if="icon === 'dollar'"
+        :icon="faMoneyCheckDollar"
+        class="text-xl md:hidden"
+      />
+      <FontAwesomeIcon v-if="icon === 'target'" :icon="faBullseye" class="text-xl md:hidden" />
+      <p class="font-medium text-xl md:text-lg">{{ title }}</p>
+      <p class="font-medium text-sm md:text-xs text-hint">últimos 7 dias</p>
     </div>
-    <p class="font-medium text-sm text-link hover:underline cursor-pointer">Ver tudo</p>
+    <p class="font-medium text-sm md:text-xs text-link hover:underline cursor-pointer">Ver tudo</p>
   </div>
 </template>

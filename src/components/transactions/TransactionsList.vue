@@ -32,10 +32,14 @@ defineProps({
       <li
         v-for="transaction in transactions"
         :key="transaction.id"
-        class="flex items-center justify-between gap-4 px-1 py-3 border-b border-table first:border-t"
+        class="flex items-center justify-between gap-4 px-1 py-2 border-b border-table first:border-t"
       >
         <div class="flex items-center gap-3">
-          <FontAwesomeIcon :icon="faStore" class="text-xl bg-yellow p-2" />
+          <FontAwesomeIcon
+            :icon="faStore"
+            class="text-xl bg-yellow p-2 rounded-sm"
+            :style="{ backgroundColor: transaction.color }"
+          />
           <p class="font-medium text-sm text-black">{{ transaction.title }}</p>
         </div>
         <p class="font-medium text-sm text-black">{{ transaction.value }}</p>
