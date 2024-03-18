@@ -6,7 +6,7 @@ import { faBell } from '@fortawesome/free-regular-svg-icons'
 </script>
 
 <template>
-  <header class="flex justify-between items-center bg-primary p-5 px-6 w-full">
+  <header class="flex justify-between items-center bg-primary p-5 px-6 w-full md:flex-col md:gap-8">
     <img src="@/assets/png/logo.png" alt="Vue logo" class="w-24" />
 
     <HeaderNav />

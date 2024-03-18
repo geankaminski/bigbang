@@ -5,7 +5,7 @@ const router = useRouter()
 
 <template>
   <nav>
-    <ul class="flex gap-10 items-center font-poppins font-medium text-white">
+    <ul class="flex gap-10 items-center font-poppins font-medium text-white md:flex-col md:gap-8">
       <li class="hover:opacity-70 transition-all">
         <router-link
           to="/"
@@ -27,7 +27,7 @@ const router = useRouter()
       <li class="hover:opacity-70 transition-all">
         <router-link
           to="/invoices"
-          :class="router.currentRoute.value.path === '/payments' && 'bg-error text-white px-4 py-2'"
+          :class="router.currentRoute.value.path === '/invoices' && 'bg-error text-white px-4 py-2'"
         >
           Invoices
         </router-link>
@@ -36,7 +36,7 @@ const router = useRouter()
       <li class="hover:opacity-70 transition-all">
         <router-link
           to="/insights"
-          :class="router.currentRoute.value.path === '/payments' && 'bg-error text-white px-4 py-2'"
+          :class="router.currentRoute.value.path === '/insights' && 'bg-error text-white px-4 py-2'"
         >
           Insights
         </router-link>

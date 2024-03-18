@@ -25,7 +25,9 @@ export default {
       'error': '#FF6969',
       'black': '#000000',
       'white': '#ffffff',
-      'gray': '#747474 '
+      'gray': '#747474 ',
+      'table': '#B3B3B3',
+      'bars': '#D9D9D9',
     },
     extend: {
       fontFamily: {
