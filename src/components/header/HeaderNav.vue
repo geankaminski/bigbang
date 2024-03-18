@@ -4,7 +4,7 @@ const router = useRouter()
 </script>
 
 <template>
-  <nav>
+  <nav class="bg-primary">
     <ul class="flex gap-10 items-center font-poppins font-medium text-white md:flex-col md:gap-8">
       <li class="hover:opacity-70 transition-all">
         <router-link

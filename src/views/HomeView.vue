@@ -1,73 +1,35 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
 import TheHeader from '@/components/header/TheHeader.vue'
 import BalanceInfo from '@/components/balance/BalanceInfo.vue'
 import StatisticsPanel from '@/components/statistics/StatisticsPanel.vue'
 import TransactionsList from '@/components/transactions/TransactionsList.vue'
 import GeneralAnalysis from '@/components/analysis/GeneralAnalysis.vue'
 
-const transactions = [
-  {
-    id: 1,
-    title: 'Salary',
-    color: 'green',
-    value: 'R$10,98'
-  },
-  {
-    id: 2,
-    title: 'Food',
-    color: 'red',
-    value: 'R$10,98'
-  },
-  {
-    id: 3,
-    title: 'Salary',
-    color: 'green',
-    value: 'R$10,98'
-  },
-  {
-    id: 4,
-    title: 'Food',
-    color: 'red',
-    value: 'R$10,98'
-  }
-]
+import fetchData from '@/services/mock'
 
-const categories = [
-  {
-    id: 1,
-    title: 'Compras',
-    color: 'green',
-    value: 62
-  },
-  {
-    id: 2,
-    title: 'Boletos',
-    color: 'red',
-    value: 14
-  },
-  {
-    id: 3,
-    title: 'Investimentos',
-    color: 'green',
-    value: 5
-  }
-]
+const transactions = ref([])
+const categories = ref([])
+const summary = ref({ income: 0, outcome: 0 })
 
-const summary = {
-  income: 50,
-  outcome: 50
-}
+onMounted(async () => {
+  const response = await fetchData()
+  transactions.value = (response as any).transactions
+  categories.value = (response as any).categories
+  summary.value = (response as any).summary
+})
 </script>
 
 <template>
   <TheHeader />
 
-  <main class="mx-auto px-32 pt-28 font-poppins">
+  <main class="mx-auto px-32 pt-28 mb-32 font-poppins lg:px-10 md:px-6 md:pt-16">
     <BalanceInfo />
 
-    <StatisticsPanel class="mt-16" />
+    <StatisticsPanel class="mt-24" />
 
-    <div class="flex justify-between mt-16 gap-24">
+    <div class="flex justify-between mt-16 gap-24 md:flex-col md:gap-16">
       <TransactionsList :transactions="transactions" />
       <GeneralAnalysis :categories="categories" :summary="summary" />
     </div>

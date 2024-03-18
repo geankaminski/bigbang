@@ -1,8 +1,23 @@
 <script setup lang="ts">
+import { watch } from 'vue'
+
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 import TableHeader from '@/components/TableHeader.vue'
+
+import { useCounterAnimation } from '@/composables/useCounterAnimation'
+
+const props = defineProps({
+  categories: {
+    type: Array as () => Array<Category>,
+    required: true
+  },
+  summary: {
+    type: Object as () => Summary,
+    required: true
+  }
+})
 
 interface Summary {
   income: number
@@ -16,16 +31,13 @@ interface Category {
   value: number
 }
 
-defineProps({
-  categories: {
-    type: Array as () => Array<Category>,
-    required: true
-  },
-  summary: {
-    type: Object as () => Summary,
-    required: true
-  }
-})
+const { count, animate } = useCounterAnimation()
+
+const updateCounter = (newValue: number) => {
+  animate(newValue)
+}
+
+watch(() => props.summary.income, updateCounter)
 </script>
 
 <template>
@@ -35,7 +47,7 @@ defineProps({
     <div class="flex items-center justify-between px-6 py-4 border-b border-t border-table">
       <div>
         <p class="font-medium text-sm color-black mb-2">Ganhos</p>
-        <p class="font-medium text-xl color-black">R${{ summary.income }}</p>
+        <p class="font-medium text-xl color-black">R${{ count }}</p>
       </div>
 
       <div>

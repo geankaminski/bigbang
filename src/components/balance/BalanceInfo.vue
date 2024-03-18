@@ -1,26 +1,35 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faBolt, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faBolt, faPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <template>
   <section class="w-full text-white">
     <p class="font-medium text-xl">Saldo total</p>
 
-    <div class="flex items-center justify-between">
-      <div class="mt-3 flex items-center gap-3">
-        <p class="text-4xl font-medium">R$304,78</p>
+    <div class="flex items-center justify-between md:flex-col md:gap-4 md:items-start">
+      <div class="mt-3 flex items-center gap-3 md:gap-4">
+        <p class="text-4xl md:text-2xl font-medium">R$304,78</p>
         <FontAwesomeIcon :icon="faBolt" class="text-yellow" />
         <p class="text-sm font-normal">rendendo 124%</p>
       </div>
 
-      <div>
-        <button class="bg-secondary py-2 px-12">
+      <div class="mt-3 flex items-center gap-4">
+        <button class="bg-secondary py-2 px-20 relative md:px-10 hover:opacity-70 transition-all">
+          <FontAwesomeIcon
+            :icon="faPaperPlane"
+            class="text-white absolute left-4 top-2 md:left-2 md:top-2"
+          />
           <p class="text-sm font-medium">Enviar dinheiro</p>
         </button>
 
-        <button class="bg-secondary p-2 px-4 ml-4">
-          <p class="text-sm font-medium"><FontAwesomeIcon :icon="faPlus" class="text-white" /></p>
+        <button
+          class="bg-secondary p-2 px-6 ml-4 hover:opacity-70 transition-all"
+          aria-label="Adicionar"
+        >
+          <p class="text-sm font-medium">
+            <FontAwesomeIcon :icon="faPlus" class="text-white" aria-hidden="true" />
+          </p>
         </button>
       </div>
     </div>
