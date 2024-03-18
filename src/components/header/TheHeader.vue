@@ -26,7 +26,7 @@ const opened = ref(false)
       <FontAwesomeIcon
         aria-label="Abrir menu"
         :icon="faBars"
-        class="text-white text-xl ml-6 hidden md:block cursor-pointer hover:opacity-70 transition-all"
+        class="menu-btn text-white text-xl ml-6 hidden md:block cursor-pointer hover:opacity-70 transition-all"
         @click="opened = !opened"
       />
     </div>

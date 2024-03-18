@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div role="status">
+  <div role="status" id="loading">
     <svg
       aria-hidden="true"
       :class="`${size} animate-spin`"

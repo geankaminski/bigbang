@@ -26,6 +26,8 @@ defineProps({
       <p class="font-medium text-xl md:text-lg">{{ title }}</p>
       <p class="font-medium text-sm md:text-xs text-hint">últimos 7 dias</p>
     </div>
-    <p class="font-medium text-sm md:text-xs text-link hover:underline cursor-pointer">Ver tudo</p>
+    <a href="#" class="font-medium text-sm md:text-xs text-link hover:underline cursor-pointer"
+      >Ver tudo</a
+    >
   </div>
 </template>

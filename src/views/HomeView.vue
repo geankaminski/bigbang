@@ -31,7 +31,6 @@ const cards = ref([
 ])
 const transactions = ref([])
 const categories = ref([])
-
 const summary = ref({ income: 0, outcome: 0 })
 
 onMounted(async () => {
