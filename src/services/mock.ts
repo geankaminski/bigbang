@@ -47,8 +47,8 @@ const categories = [
 ]
 
 const summary = {
-  income: 1000,
-  outcome: 500
+  income: 2789.21,
+  outcome: 1278.47
 }
 
 function fetchData() {

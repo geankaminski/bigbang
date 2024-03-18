@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
 
 import TableHeader from '@/components/TableHeader.vue'
+import BaseLoading from '@/components/BaseLoading.vue'
 
 interface Transaction {
   id: number
@@ -15,6 +16,10 @@ defineProps({
   transactions: {
     type: Array as () => Array<Transaction>,
     required: true
+  },
+  loading: {
+    type: Boolean,
+    required: true
   }
 })
 </script>
@@ -23,7 +28,7 @@ defineProps({
   <div class="w-full">
     <TableHeader title="Transações recentes" icon="dollar" />
 
-    <ul>
+    <ul v-if="!loading">
       <li
         v-for="transaction in transactions"
         :key="transaction.id"
@@ -36,5 +41,9 @@ defineProps({
         <p class="font-medium text-sm text-black">{{ transaction.value }}</p>
       </li>
     </ul>
+
+    <div v-else class="flex items-center justify-center w-full h-32">
+      <BaseLoading />
+    </div>
   </div>
 </template>

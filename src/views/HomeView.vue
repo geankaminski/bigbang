@@ -9,15 +9,20 @@ import GeneralAnalysis from '@/components/analysis/GeneralAnalysis.vue'
 
 import fetchData from '@/services/mock'
 
+const loading = ref(false)
 const transactions = ref([])
 const categories = ref([])
 const summary = ref({ income: 0, outcome: 0 })
 
 onMounted(async () => {
+  loading.value = true
+
   const response = await fetchData()
   transactions.value = (response as any).transactions
   categories.value = (response as any).categories
   summary.value = (response as any).summary
+
+  loading.value = false
 })
 </script>
 
@@ -30,8 +35,8 @@ onMounted(async () => {
     <StatisticsPanel class="mt-24" />
 
     <div class="flex justify-between mt-16 gap-24 md:flex-col md:gap-16">
-      <TransactionsList :transactions="transactions" />
-      <GeneralAnalysis :categories="categories" :summary="summary" />
+      <TransactionsList :transactions="transactions" :loading="loading" />
+      <GeneralAnalysis :categories="categories" :summary="summary" :loading="loading" />
     </div>
   </main>
 </template>
