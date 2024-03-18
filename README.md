@@ -1,45 +1,27 @@
-# big-bang
+# BigBang Dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto é um dashboard web responsivo que permite a visualização de dados de forma clara e objetiva,desenvolvido utilizando as tecnologias Vue 3, Tailwind CSS e Font Awesome. Também foi utilizado Typescript para a tipagem dos dados e Vitest para a realização de testes unitários dos componentes.
 
-## Recommended IDE Setup
+# Executando o Projeto
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+O projeto foi desenvolvido utilizando Node v18.19.1. Para executar, siga os passos abaixo:
 
-## Type Support for `.vue` Imports in TS
+1. Clone o repositório.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+2. Instale as dependências do projeto:
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Execute o projeto:
 
-```sh
+```
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+4. Acesse o projeto em seu navegador (por padrão, na porta 5173):
 
-```sh
-npm run build
 ```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+http://localhost:5173
 ```
