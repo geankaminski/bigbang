@@ -1,6 +1,8 @@
 # BigBang Dashboard
 
-Este projeto é um dashboard web responsivo que permite a visualização de dados de forma clara e objetiva, desenvolvido utilizando as tecnologias Vue 3, Tailwind CSS e Font Awesome. Também foi utilizado Typescript para a tipagem dos dados e Vitest para a realização de testes unitários dos componentes.
+Este projeto é um dashboard web responsivo que permite a visualização de dados de forma clara e objetiva, desenvolvido utilizando as tecnologias Vue 3 e Tailwind CSS. Também foi utilizado Typescript para a tipagem dos dados e Vitest para a realização de testes unitários dos componentes.
+
+Foram utilizados ícones exclusivamente do Font Awesome.
 
 # Executando o Projeto
 
@@ -24,4 +26,10 @@ npm run dev
 
 ```
 http://localhost:5173
+```
+
+5. Para rodar os testes unitários, execute:
+
+```
+npm run test:unit
 ```
